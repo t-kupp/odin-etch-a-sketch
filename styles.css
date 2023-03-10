@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#square-grid {
+  max-width: 1000px;
+  display: inline-grid;
+  justify-content: center;
+  grid-template-columns: repeat(32, auto);
+  grid-gap: 1px;
+  padding: 50px;
+  user-select: none;
+  background-color: bisque;
+}
+
+.square {
+  height: 19px;
+  width: 19px;
+}
+
+
+.grid-size-button {
+    width: 70px;
+    height: 20px;
+    border: 1px solid black;
+}
