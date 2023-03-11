@@ -8,6 +8,9 @@ const resetBtn = document.getElementById("resetBtn");
 const square = document.querySelectorAll(".square");
 let currentMode = "default";
 
+
+
+
 // Create 384 squares inside #square-grid on page load and set active button outline
 
 window.addEventListener("load", () => {
@@ -50,30 +53,23 @@ function createGrid(numSquares) {
   }
 }
 
-// Function to randomize colors to create a rainbow effect
 
-function rainbowMode() {
-  num = Math.floor(Math.random() * 7 + 1);
-  switch (num) {
-    case 1:
-      return "#9400D3"; // Violet
-    case 2:
-      return "#4B0082"; // Indigo
-    case 3:
-      return "#0000FF"; // Blue
-    case 4:
-      return "#00FF00"; // Green
-    case 5:
-      return "#FFFF00"; // Yellow
-    case 6:
-      return "#FF7F00"; // Orange
-    case 7:
-      return "#FF0000"; // Red
+// Function to create a rainbow 
+let currentRainbowColor = 0;
+let countingUp = true;
+function rainbowMode () {
+  const rainbowColors = ["#9400D3", "#4B0082", "#0000FF", "#00FF00", "#FFFF00", "#FF7F00", "#FF0000"]
+  if (countingUp) {
+    currentRainbowColor++
+  } else {
+    currentRainbowColor--
   }
+  if (currentRainbowColor == 6 || currentRainbowColor == 0) {
+    countingUp = !countingUp
+  }
+  return rainbowColors[currentRainbowColor]
 }
 
-// normalBtn.onclick = () => setCurrentMode("normal")
-// rainbowBtn.onclick = () => setCurrentMode("rainbow")
 
 normalBtn.addEventListener("click", () => {
   setCurrentMode("default");
