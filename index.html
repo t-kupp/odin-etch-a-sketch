@@ -9,14 +9,21 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <div id="square-grid"></div>
-    <div id="ui-elements">+
-        <div id="grid-size-selector">
-            <p>Grid Size</p>
-            <button class="grid-size-button" id="small-grid">Small</button>
-            <button class="grid-size-button" id="medium-grid">Medium</button>
-            <button class="grid-size-button" id="big-grid">Big</button>
-        </div>
+    <div id="square-grid-wrapper">
+      <div id="square-grid"></div>
+      
+    </div>
+    <div id="ui-elements">
+      <div id="grid-size-selector">
+        <p>Grid Size</p>
+        <button class="ui-button" id="normal-grid">Normal</button>
+        <button class="ui-button" id="big-grid">Big</button>
+      </div>
+      <div id="mode-selector">
+        <p>Mode</p>
+        <button class="ui-button" id="normal-mode">Normal</button>
+        <button class="ui-button" id="rainbow-mode">Rainbow</button>
+      </div>
     </div>
   </body>
 </html>
