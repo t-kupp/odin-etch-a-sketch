@@ -3,11 +3,17 @@ const bigGrid = document.getElementById("big-grid");
 const squareGrid = document.getElementById("square-grid");
 const rainbowBtn = document.getElementById("rainbow-mode");
 const normalBtn = document.getElementById("normal-mode");
-let currentMode = "default"
+const modeButton = document.querySelectorAll(".mode-button");
+const resetBtn = document.getElementById("resetBtn");
+const square = document.querySelectorAll(".square");
+let currentMode = "default";
 
-// Create 384 squares inside #square-grid on page load
+// Create 384 squares inside #square-grid on page load and set active button outline
 
-window.onload = createGrid(384);
+window.addEventListener("load", () => {
+  createGrid(384);
+  activeButton()
+})
 
 // UI Grid size buttons
 
@@ -68,13 +74,23 @@ function rainbowMode() {
   }
 }
 
-normalBtn.onclick = () => setCurrentMode("normal")
-rainbowBtn.onclick = () => setCurrentMode("rainbow")
+// normalBtn.onclick = () => setCurrentMode("normal")
+// rainbowBtn.onclick = () => setCurrentMode("rainbow")
+
+normalBtn.addEventListener("click", () => {
+  setCurrentMode("default");
+  activeButton();
+});
+
+rainbowBtn.addEventListener("click", () => {
+  setCurrentMode("rainbow");
+  activeButton();
+});
 
 // Function to set different modes
 
 function setCurrentMode(Mode) {
-  currentMode = Mode
+  currentMode = Mode;
 }
 // Function to change color of the squares
 
@@ -85,3 +101,25 @@ function changeColor(e) {
     e.target.style.backgroundColor = "gray";
   }
 }
+
+// Function to highlight the active mode button 
+
+function activeButton() {
+  modeButton.forEach((button) => {
+    button.style.outline = "none";
+  });
+  if (currentMode === "default") {
+    normalBtn.style.outline = "2px solid black";
+  } else if (currentMode === "rainbow") {
+    rainbowBtn.style.outline = "2px solid black";
+  }
+}
+
+// Reset all squares to white when clicking the reset button
+
+resetBtn.addEventListener("click", () => {
+  const square = document.querySelectorAll(".square");
+  square.forEach((square) => {
+    square.style.backgroundColor = "white";
+  });
+});
