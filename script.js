@@ -12,8 +12,8 @@ let currentMode = "default";
 
 window.addEventListener("load", () => {
   createGrid(384);
-  activeButton()
-})
+  activeButton();
+});
 
 // UI Grid size buttons
 
@@ -43,12 +43,10 @@ function removeSquares() {
 function createGrid(numSquares) {
   for (let i = 0; i < numSquares; i++) {
     const squareCreate = document.createElement("div");
-    const square = document.querySelectorAll(".square");
     squareGrid.appendChild(squareCreate);
     squareCreate.className = "square";
-    square.forEach((square) =>
-      square.addEventListener("mouseover", changeColor)
-    );
+    const square = document.querySelectorAll(".square");
+    square.forEach((square) => square.addEventListener("mouseover", changeColor));
   }
 }
 
@@ -102,7 +100,7 @@ function changeColor(e) {
   }
 }
 
-// Function to highlight the active mode button 
+// Function to highlight the active mode button
 
 function activeButton() {
   modeButton.forEach((button) => {
