@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
   </head>
@@ -33,9 +34,15 @@
           <p class="rgb-value" id="display-value-blue">B: 0</p>
         </div>
       </div>
-      <div class="ui-subsection" id="preview-wrapper">
+      <div class="ui-subsection" id="color-wrapper">
         <p class="subsection-header">Color</p>
-        <div id="custom-color-preview"></div>
+        <div id="preview-wrapper">
+          <div id="custom-color-preview"></div>
+          <div id="color-picker">
+            <p id="color-picker-header">Color Picker</p>
+            <button class="ui-button mode-button" id="pickerBtn"><i class="fa fa-eyedropper"></i></button>
+          </div>
+        </div>
       </div>
       <div class="ui-subsection" id="options">
         <p class="subsection-header">Options</p>

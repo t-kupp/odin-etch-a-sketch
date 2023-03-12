@@ -11,12 +11,12 @@ const rgb1 = document.getElementById("rgb1");
 const rgb2 = document.getElementById("rgb2");
 const rgb3 = document.getElementById("rgb3");
 const rgbSliders = document.querySelectorAll(".rgb-input");
+const pickBtn = document.getElementById("pickerBtn");
 let currentMode = "default";
 
 let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
-
+document.body.addEventListener("mousedown", () => (mouseDown = true))
+document.body.addEventListener("mouseup", () => (mouseDown = false))
 // Create 384 squares inside #square-grid on page load and set active button outline
 
 window.addEventListener("load", () => {
@@ -101,6 +101,12 @@ customBtn.addEventListener("click", () => {
   activeButton();
 });
 
+pickerBtn.addEventListener("click", () => {
+  setCurrentMode("colorPicker");
+  customColor();
+  activeButton();
+});
+
 function setCurrentMode(Mode) {
   currentMode = Mode;
   if (!(currentMode === "custom")) {
@@ -123,8 +129,10 @@ function changeColor(e) {
     e.target.style.backgroundColor = "white";
   } else if (currentMode === "custom") {
     e.target.style.backgroundColor = `rgb(${customColor()})`;
-  } else {
+  } else if (currentMode === "default") {
     e.target.style.backgroundColor = "gray";
+  } else if (currentMode === "colorPicker") {
+    e.target.style.backgroundColor = colorPicker()
   }
 }
 
@@ -142,6 +150,8 @@ function activeButton() {
     eraserBtn.style.border = "2px solid #1F2937";
   } else if (currentMode === "custom") {
     customBtn.style.border = "2px solid #1F2937";
+  } else if (currentMode === "colorPicker") {
+    pickerBtn.style.border = "2px solid #1F2937"
   }
 }
 
@@ -198,4 +208,10 @@ function previewDisplayHex(hexValue) {
 function previewDisplayRainbow(rainbowGradient) {
   const preview = document.getElementById("custom-color-preview");
   preview.style.background = `${rainbowGradient}`;
+}
+
+// Function for picking a color from the grid
+
+function colorPicker() {
+
 }

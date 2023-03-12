@@ -98,6 +98,11 @@ body {
   grid-template-columns: repeat(2, auto);
 }
 
+#preview-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
 #custom-color-preview {
   margin-top: 5px;
   width: 50px;
@@ -108,4 +113,14 @@ body {
 #mode-button-wrapper {
   display: grid;
   grid-template-columns: repeat(2, auto);
+}
+
+#color-picker-header {
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+}
+
+#pickerBtn {
+  width: 30px;
+  border-radius: 8px;;
 }
