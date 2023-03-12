@@ -20,8 +20,27 @@
       </div>
       <div class="ui-subsection" id="mode-selector">
         <p>Mode</p>
-        <button class="ui-button mode-button" id="normal-mode">Normal</button>
-        <button class="ui-button mode-button" id="rainbow-mode">Rainbow</button>
+        <div id="mode-button-wrapper">
+        <button class="ui-button mode-button" id="normalBtn">Normal</button>
+        <button class="ui-button mode-button" id="rainbowBtn">Rainbow</button>
+        <button class="ui-button mode-button" id="eraserBtn">Eraser</button>
+        <button class="ui-button mode-button" id="customBtn">Custom</button>
+        </div>
+      </div>
+      <div class="ui-subsection" id="custom-color-wrapper">
+        <p>Custom color</p>
+        <div id="slider-wrapper">
+          <input class="rgb-input" id="rgb1" type="range" min="0" max="255" value="0" />
+          <p class="rgb-value" id="display-value-red">R: 0</p>
+          <input class="rgb-input" id="rgb2" type="range" min="0" max="255" value="0" />
+          <p class="rgb-value" id="display-value-green">G: 0</p>
+          <input class="rgb-input" id="rgb3" type="range" min="0" max="255" value="0" />
+          <p class="rgb-value" id="display-value-blue">B: 0</p>
+        </div>
+      </div>
+      <div class="ui-subsection" id="preview-wrapper">
+        <p>Preview:</p>
+        <div id="custom-color-preview"></div>
       </div>
       <div class="ui-subsection" id="options">
         <p>Options</p>
