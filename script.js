@@ -13,10 +13,10 @@ const rgb3 = document.getElementById("rgb3");
 const rgbSliders = document.querySelectorAll(".rgb-input");
 const pickBtn = document.getElementById("pickerBtn");
 let currentMode = "default";
-
 let mouseDown = false;
 document.body.addEventListener("mousedown", () => (mouseDown = true))
 document.body.addEventListener("mouseup", () => (mouseDown = false))
+
 // Create 384 squares inside #square-grid on page load and set active button outline
 
 window.addEventListener("load", () => {
@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
   squareGrid.style.gridTemplateColumns = "repeat(32, auto)";
   activeButton();
   previewDisplayHex("gray");
-  setCurrentMode("normal");
+  setCurrentMode("default");
 });
 
 // Function to remove all squares
