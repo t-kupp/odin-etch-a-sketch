@@ -20,25 +20,12 @@ document.body.onmouseup = () => (mouseDown = false);
 // Create 384 squares inside #square-grid on page load and set active button outline
 
 window.addEventListener("load", () => {
-  createGrid(384);
+  createGrid(768);
+  squareGrid.style.gridTemplateColumns = "repeat(32, auto)";
   activeButton();
   previewDisplayHex("gray");
   setCurrentMode("normal");
 });
-
-// UI Grid size buttons
-
-normalGrid.onclick = function normalGrid() {
-  removeSquares();
-  createGrid(384);
-  squareGrid.style.gridTemplateColumns = "repeat(24, auto)";
-};
-
-bigGrid.onclick = function bigGrid() {
-  removeSquares();
-  createGrid(768);
-  squareGrid.style.gridTemplateColumns = "repeat(32, auto)";
-};
 
 // Function to remove all squares
 
@@ -145,16 +132,16 @@ function changeColor(e) {
 
 function activeButton() {
   modeButton.forEach((button) => {
-    button.style.outline = "none";
+    button.style.border = "1px solid #1F2937";
   });
   if (currentMode === "default") {
-    normalBtn.style.outline = "2px solid black";
+    normalBtn.style.border = "2px solid #1F2937";
   } else if (currentMode === "rainbow") {
-    rainbowBtn.style.outline = "2px solid black";
+    rainbowBtn.style.border = "2px solid #1F2937";
   } else if (currentMode === "eraser") {
-    eraserBtn.style.outline = "2px solid black";
+    eraserBtn.style.border = "2px solid #1F2937";
   } else if (currentMode === "custom") {
-    customBtn.style.outline = "2px solid black";
+    customBtn.style.border = "2px solid #1F2937";
   }
 }
 
