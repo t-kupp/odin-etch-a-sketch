@@ -45,6 +45,7 @@ function createGrid(numSquares) {
     const square = document.querySelectorAll(".square");
     square.forEach((square) => square.addEventListener("mouseover", changeColor));
     square.forEach((square) => square.addEventListener("mousedown", changeColor));
+    square.forEach((square) => square.addEventListener("touchmove", changeColor));
   }
 }
 
@@ -112,7 +113,7 @@ function setCurrentMode(Mode) {
 }
 // Function to change color of the squares
 
-function changeColor(e, color) {
+function changeColor(e) {
   if (e.type === "mouseover" && !mouseDown) return;
   if (currentMode === "rainbow") {
     e.target.style.backgroundColor = rainbowMode();
@@ -122,9 +123,6 @@ function changeColor(e, color) {
     e.target.style.backgroundColor = `rgb(${customColor()})`;
   } else if (currentMode === "default") {
     e.target.style.backgroundColor = "#8e8d8a";
-  } else if (currentMode === "colorPicker") {
-    e.target.style.backgroundColor = color;
-
   }
 }
 
