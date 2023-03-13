@@ -13,6 +13,7 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
+    <h1 id="header">Etch-A-Sketch</h1>
     <div id="square-grid-wrapper">
       <div id="square-grid"></div>
     </div>
@@ -21,7 +22,7 @@
         <p class="subsection-header">Mode</p>
         <div id="mode-button-wrapper">
           <button class="ui-button mode-button" id="normalBtn">Normal</button>
-          <button class="ui-button mode-button" id="rainbowBtn">Rainbow</button>
+          <button class="ui-button mode-button" id="rainbowBtn">Themed</button>
           <button class="ui-button mode-button" id="eraserBtn">Eraser</button>
           <button class="ui-button mode-button" id="customBtn">Custom</button>
         </div>
@@ -38,7 +39,7 @@
         </div>
       </div>
       <div class="ui-subsection" id="color-wrapper">
-        <p class="subsection-header">Color</p>
+        <p class="subsection-header">Selected Color</p>
         <div id="preview-wrapper">
           <div id="custom-color-preview"></div>
           <div id="color-picker">
@@ -50,5 +51,7 @@
         <button class="ui-button" id="resetBtn">Clear</button>
       </div>
     </div>
+    <p id="copyright">2023 created by T-Kupp<a id="copyright-link" target="_blank" href="https://github.com/t-kupp"><i id="github-icon" class="fa fa-github"></i>
+    </a></p>
   </body>
 </html>

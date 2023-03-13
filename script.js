@@ -53,20 +53,18 @@ let currentRainbowColor = 0;
 let countingUp = true;
 function rainbowMode() {
   const rainbowColors = [
-    "#9400D3",
-    "#4B0082",
-    "#0000FF",
-    "#00FF00",
-    "#FFFF00",
-    "#FF7F00",
-    "#FF0000",
+    "#EAE7DC",
+    "#D8C3A5",
+    "#8E8D8A",
+    "#E98074",
+    "#E85A4F"
   ];
   if (countingUp) {
     currentRainbowColor++;
   } else {
     currentRainbowColor--;
   }
-  if (currentRainbowColor == 6 || currentRainbowColor == 0) {
+  if (currentRainbowColor == 4 || currentRainbowColor == 0) {
     countingUp = !countingUp;
   }
   return rainbowColors[currentRainbowColor];
@@ -76,14 +74,14 @@ function rainbowMode() {
 
 normalBtn.addEventListener("click", () => {
   setCurrentMode("default");
-  previewDisplayHex("gray");
+  previewDisplayHex("#8e8d8a");
   activeButton();
 });
 
 rainbowBtn.addEventListener("click", () => {
   setCurrentMode("rainbow");
   previewDisplayRainbow(
-    "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(148,0,211,1) 0%, rgba(75,0,130,1) 17%, rgba(0,0,255,1) 34%, rgba(0,255,0,1) 51%, rgba(255,255,0,1) 69%, rgba(255,127,0,1) 85%, rgba(255,0,0,1) 100%)"
+    "linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(234,231,220,1) 0%, rgba(216,195,165,1) 24%, rgba(142,141,138,1) 50%, rgba(233,128,116,1) 77%, rgba(232,90,79,1) 100%)"
   );
   activeButton();
 });
@@ -123,7 +121,7 @@ function changeColor(e, color) {
   } else if (currentMode === "custom") {
     e.target.style.backgroundColor = `rgb(${customColor()})`;
   } else if (currentMode === "default") {
-    e.target.style.backgroundColor = "gray";
+    e.target.style.backgroundColor = "#8e8d8a";
   } else if (currentMode === "colorPicker") {
     e.target.style.backgroundColor = color;
 
