@@ -11,13 +11,12 @@ const rgb1 = document.getElementById("rgb1");
 const rgb2 = document.getElementById("rgb2");
 const rgb3 = document.getElementById("rgb3");
 const rgbSliders = document.querySelectorAll(".rgb-input");
-const pickBtn = document.getElementById("pickerBtn");
 let currentMode = "default";
 let mouseDown = false;
-document.body.addEventListener("mousedown", () => (mouseDown = true))
-document.body.addEventListener("mouseup", () => (mouseDown = false))
+document.body.addEventListener("mousedown", () => (mouseDown = true));
+document.body.addEventListener("mouseup", () => (mouseDown = false));
 
-// Create 384 squares inside #square-grid on page load and set active button outline
+// Create 384 squares inside #square-grid on page load and set active button
 
 window.addEventListener("load", () => {
   createGrid(768);
@@ -101,12 +100,6 @@ customBtn.addEventListener("click", () => {
   activeButton();
 });
 
-pickerBtn.addEventListener("click", () => {
-  setCurrentMode("colorPicker");
-  customColor();
-  activeButton();
-});
-
 function setCurrentMode(Mode) {
   currentMode = Mode;
   if (!(currentMode === "custom")) {
@@ -121,7 +114,7 @@ function setCurrentMode(Mode) {
 }
 // Function to change color of the squares
 
-function changeColor(e) {
+function changeColor(e, color) {
   if (e.type === "mouseover" && !mouseDown) return;
   if (currentMode === "rainbow") {
     e.target.style.backgroundColor = rainbowMode();
@@ -132,7 +125,8 @@ function changeColor(e) {
   } else if (currentMode === "default") {
     e.target.style.backgroundColor = "gray";
   } else if (currentMode === "colorPicker") {
-    e.target.style.backgroundColor = colorPicker()
+    e.target.style.backgroundColor = color;
+
   }
 }
 
@@ -140,18 +134,21 @@ function changeColor(e) {
 
 function activeButton() {
   modeButton.forEach((button) => {
-    button.style.border = "1px solid #1F2937";
+    button.style.color = "var(--main-red)";
+    button.style.backgroundColor = "var(--main-beige)";
   });
   if (currentMode === "default") {
-    normalBtn.style.border = "2px solid #1F2937";
+    normalBtn.style.color = "var(--main-beige)";
+    normalBtn.style.backgroundColor = "var(--main-red)";
   } else if (currentMode === "rainbow") {
-    rainbowBtn.style.border = "2px solid #1F2937";
+    rainbowBtn.style.color = "var(--main-beige)";
+    rainbowBtn.style.backgroundColor = "var(--main-red)";
   } else if (currentMode === "eraser") {
-    eraserBtn.style.border = "2px solid #1F2937";
+    eraserBtn.style.color = "var(--main-beige)";
+    eraserBtn.style.backgroundColor = "var(--main-red)";
   } else if (currentMode === "custom") {
-    customBtn.style.border = "2px solid #1F2937";
-  } else if (currentMode === "colorPicker") {
-    pickerBtn.style.border = "2px solid #1F2937"
+    customBtn.style.color = "var(--main-beige)";
+    customBtn.style.backgroundColor = "var(--main-red)";
   }
 }
 
@@ -208,10 +205,4 @@ function previewDisplayHex(hexValue) {
 function previewDisplayRainbow(rainbowGradient) {
   const preview = document.getElementById("custom-color-preview");
   preview.style.background = `${rainbowGradient}`;
-}
-
-// Function for picking a color from the grid
-
-function colorPicker() {
-
 }
