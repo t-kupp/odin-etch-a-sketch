@@ -53,13 +53,7 @@ function createGrid(numSquares) {
 let currentRainbowColor = 0;
 let countingUp = true;
 function rainbowMode() {
-  const rainbowColors = [
-    "#EAE7DC",
-    "#D8C3A5",
-    "#8E8D8A",
-    "#E98074",
-    "#E85A4F"
-  ];
+  const rainbowColors = ["#EAE7DC", "#D8C3A5", "#8E8D8A", "#E98074", "#E85A4F"];
   if (countingUp) {
     currentRainbowColor++;
   } else {
